@@ -1,0 +1,35 @@
+{
+  "name": "generate-codeowners",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "npm run format && tsc -p .",
+    "format": "prettier --write .",
+    "release": "npm version patch && npm run build && npm publish && git push --follow-tags",
+    "run": "npm run build && nodejs ./dist/cmd/generate-codeowners.js"
+  },
+  "generate-codeowners": {
+    "generate-codeowners": "./cmd/generate-codeowners.ts"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/node": "^10.0.0",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.9.0",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "commander": "^5.0.0"
+  },
+  "homepage": "https://github.com/tomasbjerre/generate-codeowners",
+  "repository": "git@github.com:tomasbjerre/generate-codeowners.git",
+  "files": [
+    "lib"
+  ],
+  "author": "Tomas Bjerre",
+  "keywords": [
+    "codeowners"
+  ],
+  "license": "Apache 2"
+}
