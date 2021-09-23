@@ -8,7 +8,7 @@
     "run": "npm run build && nodejs ./dist/cmd/generate-codeowners.js"
   },
   "generate-codeowners": {
-    "generate-codeowners": "./cmd/generate-codeowners.js"
+    "generate-codeowners": "./dist/cmd/generate-codeowners.js"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
