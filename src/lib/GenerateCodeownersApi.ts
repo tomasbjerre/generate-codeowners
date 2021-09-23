@@ -45,7 +45,7 @@ export class GenerateCodeownersApi {
       this.opts.workingDir
     );
 
-    const identifiers = rows
+    const identifiers: string[] = rows
       .split(/\r?\n/)
       .map((row: string) => {
         const parts = row.split('|');
@@ -64,14 +64,11 @@ export class GenerateCodeownersApi {
           !new RegExp(this.opts.ignoreIdentifiers).test(identifier)
       );
 
-    const commitsPerIdentifier = identifiers.reduce(function (
-      obj: number[],
-      val: number
-    ) {
-      obj[val] = (obj[val] || 0) + 1;
-      return obj;
-    },
-    {});
+    const commitsPerIdentifier = {} as Record<string, number>;
+    identifiers.forEach((identifier: string) => {
+      commitsPerIdentifier[identifier] =
+        (commitsPerIdentifier[identifier] || 0) + 1;
+    });
 
     const sorted = Object.keys(commitsPerIdentifier).sort(function (a, b) {
       return commitsPerIdentifier[b] - commitsPerIdentifier[a];
