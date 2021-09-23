@@ -6,10 +6,6 @@ import {
 } from '../lib/GenerateCodeownersApi';
 import { Command } from 'commander';
 
-function commaSeparatedList(value: string) {
-  return value.split(',');
-}
-
 const program = new Command()
   .option(
     '-gd, --gitdir <dir>',
@@ -19,14 +15,13 @@ const program = new Command()
   .option(
     '-ii, --ignoreidentifiers <regexp>',
     'Regexp to test against identifer.',
-    commaSeparatedList,
-    ['noreply']
+    'noreply'
   )
   .option('-s, --since <time>', 'Same as Git:s <since> format.', '365.day.ago')
   .option(
-    '-id, --identifier <committerEmailmail|committerEmailUser|committerName>',
+    '-id, --identifier <committerEmail|committerEmailUser|committerName>',
     'What to add as identifer.',
-    'committerEmailmail'
+    'committerEmail'
   )
   .option('-cf, --codeownersfile <name>', 'The CODEOWNERS-file', 'CODEOWNERS')
   .option(

@@ -21,8 +21,8 @@ async function doExec(cmd: string, workingDir: string) {
 export interface GenerateCodeownersApiOptions {
   workingDir: string;
   since: string;
-  identifier: 'committerEmailmail' | 'committerEmailUser' | 'committerName';
-  ignoreIdentifiers: string[];
+  identifier: 'committerEmail' | 'committerEmailUser' | 'committerName';
+  ignoreIdentifiers: string;
   codeownersFile: string;
   minimumCommitCount: number;
   maximumNumberOfCommitters: number;
@@ -52,17 +52,16 @@ export class GenerateCodeownersApi {
         if (this.opts.identifier == 'committerEmailUser') {
           return parts[0].substr(0, parts[0].indexOf('@'));
         }
-        if (this.opts.identifier == 'committerEmailmail') {
+        if (this.opts.identifier == 'committerEmail') {
           return parts[0];
         }
         if (this.opts.identifier == 'committerName') {
           return parts[1];
         }
       })
-      .filter((identifier: string) =>
-        this.opts.ignoreIdentifiers.some(
-          (ignore) => !new RegExp(ignore).test(identifier)
-        )
+      .filter(
+        (identifier: string) =>
+          !new RegExp(this.opts.ignoreIdentifiers).test(identifier)
       );
 
     const commitsPerIdentifier = identifiers.reduce(function (
