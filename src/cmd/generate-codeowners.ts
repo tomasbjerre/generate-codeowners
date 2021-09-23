@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-import { GenerateCodeownersApi } from '../lib/GenerateCodeownersApi';
+import {
+  GenerateCodeownersApi,
+  GenerateCodeownersApiOptions,
+} from '../lib/GenerateCodeownersApi';
 import { Command } from 'commander';
 
 function commaSeparatedList(value: string) {
@@ -50,7 +53,7 @@ if (options.version) {
   console.log(`${pkg.name}@${pkg.version}`);
   process.exit(0);
 }
-const api = new GenerateCodeownersApi({
+const opts = {
   workingDir: options.gitdir,
   since: options.since,
   identifier: options.identifier,
@@ -58,7 +61,9 @@ const api = new GenerateCodeownersApi({
   codeownersFile: options.codeownersfile,
   minimumCommitCount: parseInt(options.minimumcommitcount),
   maximumNumberOfCommitters: parseInt(options.maximumnumberofcommitters),
-});
+} as GenerateCodeownersApiOptions;
+console.log(`Creating ${program.codeownersfile} with:\n\n`, opts, '\n');
+const api = new GenerateCodeownersApi(opts);
 api.getCodeowners().then((out) => {
   if (options.dryrun) {
     console.log(`CODEOWNERS would contain:\n\n`);
