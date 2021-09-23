@@ -19,7 +19,7 @@ Options:
   -gd, --gitdir <dir>                    Directory with Git repository. (default: "generate-codeowners")
   -ii, --ignoreidentifiers <regexp>      Directory with Git repository. (default: ["noreply"])
   -s, --since <time>                     Same as Git:s <since> format. (default: "365.day.ago")
-  -id, --identifier <committerEmailmail| Same as Git:s <since> format. (default: "committerEmailmail")
+  -id, --identifier <committerEmailmail| What to add as identifer. (default: "committerEmailmail")
                     committerEmailUser|
                     committerName>
   -cf, --codeownersfile <name>           The CODEOWNERS-file (default: "CODEOWNERS")

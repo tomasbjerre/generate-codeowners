@@ -22,7 +22,7 @@ const program = new Command()
   .option('-s, --since <time>', 'Same as Git:s <since> format.', '365.day.ago')
   .option(
     '-id, --identifier <committerEmailmail|committerEmailUser|committerName>',
-    'Same as Git:s <since> format.',
+    'What to add as identifer.',
     'committerEmailmail'
   )
   .option('-cf, --codeownersfile <name>', 'The CODEOWNERS-file', 'CODEOWNERS')
