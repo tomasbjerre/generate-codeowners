@@ -1,6 +1,6 @@
 {
   "name": "generate-codeowners",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "npm run format && tsc -p .",
     "format": "prettier --write .",
