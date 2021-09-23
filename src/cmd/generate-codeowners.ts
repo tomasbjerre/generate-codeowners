@@ -27,6 +27,16 @@ const program = new Command()
   )
   .option('-cf, --codeownersfile <name>', 'The CODEOWNERS-file', 'CODEOWNERS')
   .option(
+    '-micc, --minimumcommitcount <number>',
+    'Ignore committers with less commits',
+    '0'
+  )
+  .option(
+    '-manc, --maximumnumberofcommitters <number>',
+    'Include most active committers',
+    '100'
+  )
+  .option(
     '-d, --dryrun',
     'Do not change anything, just print what would be changed.',
     false
@@ -46,6 +56,8 @@ const api = new GenerateCodeownersApi({
   identifier: options.identifier,
   ignoreIdentifiers: options.ignoreidentifiers,
   codeownersFile: options.codeownersfile,
+  minimumCommitCount: parseInt(options.minimumcommitcount),
+  maximumNumberOfCommitters: parseInt(options.maximumnumberofcommitters),
 });
 api.getCodeowners().then((out) => {
   if (options.dryrun) {

@@ -24,6 +24,8 @@ export interface GenerateCodeownersApiOptions {
   identifier: 'committerEmailmail' | 'committerEmailUser' | 'committerName';
   ignoreIdentifiers: string[];
   codeownersFile: string;
+  minimumCommitCount: number;
+  maximumNumberOfCommitters: number;
 }
 
 export class GenerateCodeownersApi {
@@ -63,15 +65,24 @@ export class GenerateCodeownersApi {
         )
       );
 
-    var cnts = identifiers.reduce(function (obj: number[], val: number) {
+    const commitsPerIdentifier = identifiers.reduce(function (
+      obj: number[],
+      val: number
+    ) {
       obj[val] = (obj[val] || 0) + 1;
       return obj;
-    }, {});
+    },
+    {});
 
-    var sorted = Object.keys(cnts).sort(function (a, b) {
-      return cnts[b] - cnts[a];
+    const sorted = Object.keys(commitsPerIdentifier).sort(function (a, b) {
+      return commitsPerIdentifier[b] - commitsPerIdentifier[a];
     });
 
-    return sorted;
+    return sorted
+      .filter(
+        (identifier) =>
+          commitsPerIdentifier[identifier] >= this.opts.minimumCommitCount
+      )
+      .slice(0, this.opts.maximumNumberOfCommitters);
   }
 }
