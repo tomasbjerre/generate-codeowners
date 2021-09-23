@@ -48,11 +48,13 @@ const program = new Command()
   .parse(process.argv);
 
 const options = program.opts();
+
 if (options.version) {
   const pkg = require('../../package.json');
   console.log(`${pkg.name}@${pkg.version}`);
   process.exit(0);
 }
+
 const opts = {
   workingDir: options.gitdir,
   since: options.since,
@@ -62,11 +64,14 @@ const opts = {
   minimumCommitCount: parseInt(options.minimumcommitcount),
   maximumNumberOfCommitters: parseInt(options.maximumnumberofcommitters),
 } as GenerateCodeownersApiOptions;
+
 console.log(`Creating ${program.codeownersfile} with:\n\n`, opts, '\n');
+
 const api = new GenerateCodeownersApi(opts);
+
 api.getCodeowners().then((out) => {
   if (options.dryrun) {
-    console.log(`CODEOWNERS would contain:\n\n`);
+    console.log(`${program.codeownersfile} would contain:\n\n`);
     console.log(out);
     console.log(`\n\n`);
   } else {

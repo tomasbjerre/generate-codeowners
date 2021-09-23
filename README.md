@@ -25,7 +25,7 @@ Options:
   -cf, --codeownersfile <name>                The CODEOWNERS-file (default: "CODEOWNERS")
   -micc, --minimumcommitcount <number>        Ignore committers wit
   -manc, --maximumnumberofcommitters <number> Include most active committers (default: "100")
-  -d, --dryrun                                 Do not change anything, just print what would be changed. (default: false)
-  -v, --version                                Display version (default: false)
-  -h, --help                                   display help for command
+  -d, --dryrun                                Do not change anything, just print what would be changed. (default: false)
+  -v, --version                               Display version (default: false)
+  -h, --help                                  display help for command
 ```
