@@ -7,9 +7,7 @@
     "release": "npm version patch && npm run build && npm publish && git push --follow-tags",
     "run": "npm run build && nodejs ./dist/cmd/generate-codeowners.js"
   },
-  "generate-codeowners": {
-    "generate-codeowners": "./dist/cmd/generate-codeowners.js"
-  },
+  "main": "./dist/cmd/generate-codeowners.js",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
