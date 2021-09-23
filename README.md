@@ -18,7 +18,7 @@ Usage: generate-codeowners [options]
 Options:
   -gd, --gitdir <dir>                         Directory with Git repository. (default: "generate-codeowners")
   -s, --since <time>                          Same as Git:s <since> format. (default: "365.day.ago")
-  -micc, --minimumcommitcount <number>        Ignore committers wit
+  -micc, --minimumcommitcount <number>        Ignore committers with less commits. (default: "0")
   -manc, --maximumnumberofcommitters <number> Include most active committers (default: "100")
   -id, --identifier <committerEmailmail|      What to add as identifer. (default: "committerEmailmail")
                     committerEmailUser|
