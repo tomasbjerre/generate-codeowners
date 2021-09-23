@@ -18,7 +18,7 @@ const program = new Command()
   )
   .option(
     '-ii, --ignoreidentifiers <regexp>',
-    'Directory with Git repository.',
+    'Regexp to test against identifer.',
     commaSeparatedList,
     ['noreply']
   )
