@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { GenerateCodeownersApi } from '../lib/GenerateCodeownersApi';
 import { Command } from 'commander';
 
