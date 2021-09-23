@@ -4,6 +4,14 @@
 
 Original use case was to introduce `CODEOWNERS`-files within an organization with a large amount of repositories. The idea was to generate a file based on the Git-history.
 
+Execute it with:
+
+```sh
+npx generate-codeowners
+```
+
+Parameters:
+
 ```sh
 Usage: generate-codeowners [options]
 
