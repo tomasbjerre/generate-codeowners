@@ -1,0 +1,8 @@
+name: Publish to npm
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow:
+    uses: tomasbjerre/.github/.github/workflows/publish-npm.yaml@master
