@@ -42,7 +42,7 @@ export class GenerateCodeownersApi {
   async getCommitters(): Promise<string[]> {
     const rows = await doExec(
       `git log --oneline --format="%ce|%cn" --since=${this.opts.since}`,
-      this.opts.workingDir
+      this.opts.workingDir,
     );
 
     const identifiers: string[] = rows
@@ -61,7 +61,7 @@ export class GenerateCodeownersApi {
       })
       .filter(
         (identifier: string) =>
-          !new RegExp(this.opts.ignoreIdentifiers).test(identifier)
+          !new RegExp(this.opts.ignoreIdentifiers).test(identifier),
       );
 
     const commitsPerIdentifier = {} as Record<string, number>;
@@ -77,7 +77,7 @@ export class GenerateCodeownersApi {
     return sorted
       .filter(
         (identifier) =>
-          commitsPerIdentifier[identifier] >= this.opts.minimumCommitCount
+          commitsPerIdentifier[identifier] >= this.opts.minimumCommitCount,
       )
       .slice(0, this.opts.maximumNumberOfCommitters);
   }

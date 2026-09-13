@@ -10,34 +10,34 @@ const program = new Command()
   .option(
     '-gd, --gitdir <dir>',
     'Directory with Git repository.',
-    process.cwd()
+    process.cwd(),
   )
   .option(
     '-ii, --ignoreidentifiers <regexp>',
     'Regexp to test against identifer.',
-    'noreply'
+    'noreply',
   )
   .option('-s, --since <time>', 'Same as Git:s <since> format.', '365.day.ago')
   .option(
     '-id, --identifier <committerEmail|committerEmailUser|committerName>',
     'What to add as identifer.',
-    'committerEmail'
+    'committerEmail',
   )
   .option('-cf, --codeownersfile <name>', 'The CODEOWNERS-file', 'CODEOWNERS')
   .option(
     '-micc, --minimumcommitcount <number>',
     'Ignore committers with less commits',
-    '0'
+    '0',
   )
   .option(
     '-manc, --maximumnumberofcommitters <number>',
     'Include most active committers',
-    '100'
+    '100',
   )
   .option(
     '-d, --dryrun',
     'Do not change anything, just print what would be changed.',
-    false
+    false,
   )
   .option('-v, --version', 'Display version', false)
   .parse(process.argv);
@@ -60,17 +60,17 @@ const opts = {
   maximumNumberOfCommitters: parseInt(options.maximumnumberofcommitters),
 } as GenerateCodeownersApiOptions;
 
-console.log(`Creating ${program.codeownersfile} with:\n\n`, opts, '\n');
+console.log(`Creating ${options.codeownersfile} with:\n\n`, opts, '\n');
 
 const api = new GenerateCodeownersApi(opts);
 
 api.getCodeowners().then((out) => {
   if (options.dryrun) {
-    console.log(`${program.codeownersfile} would contain:\n\n`);
+    console.log(`${options.codeownersfile} would contain:\n\n`);
     console.log(out);
     console.log(`\n\n`);
   } else {
-    console.log(`Writing ${program.codeownersfile}`);
+    console.log(`Writing ${options.codeownersfile}`);
     api.save(out);
   }
 });

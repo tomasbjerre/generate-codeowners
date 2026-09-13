@@ -16,17 +16,14 @@ Parameters:
 Usage: generate-codeowners [options]
 
 Options:
-  -gd, --gitdir <dir>                   Directory with Git repository. (default: "generate-codeowners")
-  -s, --since <time>                    Same as Git:s <since> format. (default: "365.day.ago")
-  -micc, --minimumcommitcount <number>  Ignore committers with less commits. (default: "0")
-  -manc, --maximumnumberofcommitters    Include most active committers (default: "100")
-                              <number>
-  -id, --identifier <committerEmail|    What to add as identifer. (default: "committerEmail")
-                    committerEmailUser|
-                    committerName>
-  -ii, --ignoreidentifiers <regexp>     Regexp to test against identifer. (default: "noreply")
-  -cf, --codeownersfile <name>          The CODEOWNERS-file (default: "CODEOWNERS")
-  -d, --dryrun                          Do not change anything, just print what would be changed. (default: false)
-  -v, --version                         Display version (default: false)
-  -h, --help                            display help for command
+  -gd, --gitdir <dir>                                                  Directory with Git repository. (default: current working directory)
+  -ii, --ignoreidentifiers <regexp>                                    Regexp to test against identifer. (default: "noreply")
+  -s, --since <time>                                                   Same as Git:s <since> format. (default: "365.day.ago")
+  -id, --identifier <committerEmail|committerEmailUser|committerName>  What to add as identifer. (default: "committerEmail")
+  -cf, --codeownersfile <name>                                         The CODEOWNERS-file (default: "CODEOWNERS")
+  -micc, --minimumcommitcount <number>                                 Ignore committers with less commits (default: "0")
+  -manc, --maximumnumberofcommitters <number>                          Include most active committers (default: "100")
+  -d, --dryrun                                                         Do not change anything, just print what would be changed. (default: false)
+  -v, --version                                                        Display version (default: false)
+  -h, --help                                                           display help for command
 ```
