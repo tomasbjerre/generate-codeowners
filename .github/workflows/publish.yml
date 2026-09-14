@@ -5,4 +5,4 @@ on:
 
 jobs:
   call-workflow:
-    uses: tomasbjerre/.github/.github/workflows/publish-npm.yaml@master
+    uses: tomasbjerre/.github/.github/workflows/bundle-npm-release.yaml@master
