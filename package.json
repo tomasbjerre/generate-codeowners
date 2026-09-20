@@ -18,7 +18,7 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "commander": "^5.1.0"
+    "commander": "^15.0.0"
   },
   "homepage": "https://github.com/tomasbjerre/generate-codeowners",
   "repository": "git@github.com:tomasbjerre/generate-codeowners.git",
